@@ -1,24 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Learning project from https://hotrails.dev/
 
 Things you may want to cover:
 
 * Ruby version
 
+3.0.1
+
 * System dependencies
+
+postgres (PostgreSQL) 14.2
 
 * Configuration
 
-* Database creation
+None
 
-* Database initialization
+* Install the application
+
+```sh
+$> bin/setup
+```
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+$> rails test
+```
 
-* Deployment instructions
+* How to run the application
 
-* ...
+```sh
+$> bin/dev
+```
+
+After that command, you can open `http://localhost:3000` in your client browser.
