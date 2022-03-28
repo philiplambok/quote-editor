@@ -1,0 +1,10 @@
+<%= turbo_frame_tag 'new_note_frame' do %>
+  <div class="my-4">
+    <%= form_with(model: Note.new) do |form| %>
+      <%= form.label :text %>
+      <%= form.text_field :text, class: 'form-control' %>
+      <br>
+      <%= form.submit 'Create note' %>
+    <% end %>
+  </div>
+<% end %>

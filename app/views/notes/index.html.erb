@@ -1,3 +1,13 @@
-<div class="container">
-  <h3>Hello world</h3>
+<div class="container my-4">
+  <div class="col-md-4 m-auto">
+    <h4>List of notes</h4>
+    <%= turbo_frame_tag 'new_note_frame' do %>
+      <%= link_to 'Add new note', new_note_path %>
+    <% end %>
+    <ul>
+      <% @notes.each do |note| %>
+        <li><%= note.text %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
