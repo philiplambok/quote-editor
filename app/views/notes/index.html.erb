@@ -2,12 +2,14 @@
   <div class="col-md-4 m-auto">
     <h4>List of notes</h4>
     <%= turbo_frame_tag 'new_note_frame' do %>
-      <%= link_to 'Add new note', new_note_path %>
+      <%= link_to 'Add new note', new_note_path, data: { turbo_frame: 'list_notes_frame' } %>
     <% end %>
-    <ul>
-      <% @notes.each do |note| %>
-        <li><%= note.text %></li>
-      <% end %>
-    </ul>
+    <%= turbo_frame_tag 'list_notes_frame' do %>
+      <ul>
+        <% @notes.each do |note| %>
+          <li><%= note.text %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </div>
