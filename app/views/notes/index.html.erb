@@ -7,7 +7,12 @@
     <%= turbo_frame_tag 'list_notes_frame' do %>
       <ul>
         <% @notes.each do |note| %>
-          <li><%= note.text %></li>
+          <li>
+            <%= turbo_frame_tag dom_id(note) do %>
+              <%= note.text %>
+              <%= link_to 'Edit', edit_note_path(note) %>
+            <% end %>
+          </li>
         <% end %>
       </ul>
     <% end %>

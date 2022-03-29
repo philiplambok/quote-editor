@@ -1,0 +1,6 @@
+<%= turbo_frame_tag dom_id(@note) do %>
+  <%= form_with(model: @note) do |form| %>
+    <%= form.text_field :text, class: 'form-control' %>
+    <%= form.submit 'Update' %>
+  <% end %>
+<% end %>
