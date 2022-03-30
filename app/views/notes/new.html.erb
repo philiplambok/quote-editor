@@ -1,6 +1,11 @@
-<%= turbo_frame_tag 'list_notes_frame' do %>
+<%= turbo_frame_tag dom_id(@note) do %>
   <div class="my-4">
-    <%= form_with(model: Note.new) do |form| %>
+    <%= form_with(model: @note) do |form| %>
+      <% if @note.errors.full_messages.any? %>
+        <span><%= @note.errors.full_messages.join(',') %></span>
+        <hr>
+      <% end %>
+
       <%= form.label :text %>
       <%= form.text_field :text, class: 'form-control' %>
       <br>
