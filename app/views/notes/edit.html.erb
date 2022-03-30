@@ -4,6 +4,7 @@
   <% end %>
   <%= form_with(model: @note) do |form| %>
     <%= form.text_field :text, class: 'form-control' %>
+    <%= link_to 'Cancel', root_path %>
     <%= form.submit 'Update' %>
   <% end %>
 <% end %>
