@@ -6,7 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-Note.create!(text: 'Hello world')
-Note.create!(text: 'My second note')
-Note.create!(text: 'My third note')
-Note.create!(text: 'My forth note')
+bill = User.create(name: 'Bill')
+john = User.create(name: 'John')
+Note.create!(text: 'First bill note', user: bill)
+Note.create!(text: 'second bill note', user: bill)
+Note.create!(text: 'First john note', user: john)
+Note.create!(text: 'second john note', user: john)
