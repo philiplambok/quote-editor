@@ -6,7 +6,7 @@
 
 <hr>
 
-<%= turbo_frame_tag dom_id(Note.new) do %>
+<%= turbo_frame_tag Note.new do %>
   <% if @notes.none? %>
     <%= render 'blank' %>
   <% end %>

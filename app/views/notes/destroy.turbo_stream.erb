@@ -1,1 +1,6 @@
 <%= turbo_stream.remove dom_id(@note) %>
+<% if @note.user.notes.blank? %>
+  <%= turbo_stream.update Note.new do %>
+    <%= render 'notes/blank' %>
+  <% end %>
+<% end %>
