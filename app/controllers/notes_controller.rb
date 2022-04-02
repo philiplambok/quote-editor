@@ -1,14 +1,14 @@
 class NotesController < ApplicationController
   def index
-    @notes = Note.all.order(created_at: :desc)
+    @notes = current_user.notes.order(created_at: :desc)
   end
 
   def new
-    @note = Note.new
+    @note = current_user.notes.build
   end
 
   def create
-    @note = Note.new(params.require(:note).permit(:text))
+    @note = current_user.notes.build(params.require(:note).permit(:text))
     if @note.save
       respond_to do |format|
         format.html { redirect_to root_path }
