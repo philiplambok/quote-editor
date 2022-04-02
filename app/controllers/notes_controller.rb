@@ -12,7 +12,7 @@ class NotesController < ApplicationController
     if @note.save
       respond_to do |format|
         format.html { redirect_to root_path }
-        format.turbo_stream
+        format.turbo_stream { flash.now[:notice] = 'Quote was successfully created.' }
       end
       return true
     end

@@ -2,3 +2,7 @@
   <%= render partial: 'notes/note', locals: { note: @note } %>
 <% end %>
 <%= turbo_stream.update 'new_note', '' %>
+
+<%= turbo_stream.prepend 'flash' do %>
+  <%= render partial: 'shared/message' %>
+<% end %>
