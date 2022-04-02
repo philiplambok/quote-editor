@@ -30,9 +30,16 @@ class NotesController < ApplicationController
 
   def update
     @note = Note.find params[:id]
-    return redirect_to root_path if @note.update(params.require(:note).permit(:text))
-
-    render :edit, status: :unprocessable_entity
+    if @note.update(params.require(:note).permit(:text))
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.turbo_stream do
+          flash.now[:notice] = 'Updated was successfully'
+        end
+      end
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
