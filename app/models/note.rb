@@ -3,5 +3,5 @@ class Note < ApplicationRecord
 
   validates :text, presence: true
 
-  broadcasts_to ->(_note) { [User.current_user, 'notes'] }, inserts_by: :prepend
+  broadcasts_to ->(note) { [note.user, 'notes'] }, inserts_by: :prepend
 end
