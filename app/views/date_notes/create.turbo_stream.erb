@@ -1,0 +1,5 @@
+<%= turbo_stream.prepend 'date_notes' do %>
+  <%= render @date_note %>
+<% end %>
+
+<%= turbo_stream.replace dom_id(DateNote.new), '' %>

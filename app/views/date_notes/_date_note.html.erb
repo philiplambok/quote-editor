@@ -1,0 +1,6 @@
+<li>
+  <%= date_note.date %>
+  <br>
+  <%= link_to 'Edit', [:edit, date_note.note, date_note] %>
+  <%= button_to 'Delete', [date_note.note, date_note], method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %>
+</li>

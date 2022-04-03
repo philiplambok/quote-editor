@@ -11,12 +11,9 @@
 <%= turbo_frame_tag dom_id(DateNote.new) %>
 
 <ul>
-  <% @note.date_notes.each do |date| %>
-    <li>
-      <%= date.date %>
-      <br>
-      <%= link_to 'Edit', [:edit, @note, date] %>
-      <%= button_to 'Delete', [@note, date], method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %>
-    </li>
+  <%= turbo_frame_tag 'date_notes' do %>
+    <% @note.date_notes.each do |date| %>
+      <%= render date %>
+    <% end %>
   <% end %>
 </ul>
