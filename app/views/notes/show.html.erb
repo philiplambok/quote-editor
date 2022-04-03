@@ -5,11 +5,15 @@
 <p>
   <span><%= @note.text %></span>
 </p>
-<%= link_to 'Add date', new_date_notes_path %>
+<%= link_to 'Add date', new_note_date_note_path(@note) %>
 <hr>
 
 <ul>
   <% @note.date_notes.each do |date| %>
-    <li><%= date.date %></li>
+    <li>
+      <%= date.date %>
+      <br>
+      <%= link_to 'Edit', [:edit, @note, date] %>
+    </li>
   <% end %>
 </ul>

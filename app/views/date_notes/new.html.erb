@@ -1,4 +1,4 @@
-<%= form_with(model: @date, url: date_notes_path, method: :post) do |form| %>
+<%= form_with(model: @date, url: [@date.note, @date]) do |form| %>
   <%= form.date_field :date, class: 'form-control' %>
   <%= form.submit 'Add date' %>
 <% end %>
