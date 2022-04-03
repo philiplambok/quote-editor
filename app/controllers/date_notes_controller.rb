@@ -22,7 +22,11 @@ class DateNotesController < ApplicationController
 
   def create
     note = Note.find_by(id: params[:note_id])
-    note.date_notes.create(params.require(:date_note).permit(:date))
-    redirect_to note_path(note), notice: 'Date was successfully added'
+    @date = note.date_notes.build(params.require(:date_note).permit(:date)) 
+    if @date.save
+      return redirect_to note_path(note), notice: 'Date was successfully added'
+    end
+
+    render :new, status: :unprocessable_entity
   end
 end

@@ -5,8 +5,10 @@
 <p>
   <span><%= @note.text %></span>
 </p>
-<%= link_to 'Add date', new_note_date_note_path(@note) %>
+<%= link_to 'Add date', new_note_date_note_path(@note), data: { turbo_frame: dom_id(DateNote.new) } %>
 <hr>
+
+<%= turbo_frame_tag dom_id(DateNote.new) %>
 
 <ul>
   <% @note.date_notes.each do |date| %>
