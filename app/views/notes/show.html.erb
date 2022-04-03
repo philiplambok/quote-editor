@@ -2,4 +2,14 @@
 <hr>
 <h1>Showing note</h1>
 
-<span><%= @note.text %></span>
+<p>
+  <span><%= @note.text %></span>
+</p>
+<%= link_to 'Add date', new_date_notes_path %>
+<hr>
+
+<ul>
+  <% @note.date_notes.each do |date| %>
+    <li><%= date.date %></li>
+  <% end %>
+</ul>
