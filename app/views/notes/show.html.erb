@@ -13,7 +13,9 @@
 <ul>
   <%= turbo_frame_tag 'date_notes' do %>
     <% @note.date_notes.each do |date| %>
-      <%= render date %>
+      <%= turbo_frame_tag date do %>
+        <%= render date %>
+      <% end %>
     <% end %>
   <% end %>
 </ul>

@@ -1,4 +1,5 @@
-<%= form_with(model: @date, url: [@date.note, @date]) do |form| %>
+<%= form_with(model: @date_note, url: [@date_note.note, @date_note]) do |form| %>
   <%= form.date_field :date, class: 'form-control' %>
   <%= form.submit 'Submit' %>
+  <%= link_to 'Cancel', note_path(@date_note.note) %>
 <% end %>

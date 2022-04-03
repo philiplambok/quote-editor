@@ -5,7 +5,7 @@ class DateNotesController < ApplicationController
   end
 
   def edit
-    @date = DateNote.find_by(id: params[:id])
+    @date_note = DateNote.find_by(id: params[:id])
   end
 
   def update
