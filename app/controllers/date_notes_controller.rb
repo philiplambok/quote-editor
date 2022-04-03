@@ -14,6 +14,12 @@ class DateNotesController < ApplicationController
     redirect_to note_path(@date.note), notice: 'Date was successfully updated'
   end
 
+  def destroy
+    @date = DateNote.find_by(id: params[:id])
+    @date.destroy
+    redirect_to note_path(@date.note), notice: 'Date was deleted updated'
+  end
+
   def create
     note = Note.find_by(id: params[:note_id])
     note.date_notes.create(params.require(:date_note).permit(:date))
