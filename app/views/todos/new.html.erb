@@ -1,0 +1,7 @@
+<h1>Add todo</h1>
+
+<%= form_with(model: @todo, url: todos_path, method: :post) do |form| %>
+  <%= form.text_field :name %>
+  <%= form.hidden_field :date_note_id, value: params[:date_note_id] %>
+  <%= form.submit 'Submit' %>
+<% end %>

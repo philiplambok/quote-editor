@@ -10,33 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_220_403_052_815) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_09_092509) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'date_notes', force: :cascade do |t|
-    t.date 'date'
-    t.bigint 'note_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['date'], name: 'index_date_notes_on_date'
-    t.index ['note_id'], name: 'index_date_notes_on_note_id'
+  create_table "date_notes", force: :cascade do |t|
+    t.date "date"
+    t.bigint "note_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["date"], name: "index_date_notes_on_date"
+    t.index ["note_id"], name: "index_date_notes_on_note_id"
   end
 
-  create_table 'notes', force: :cascade do |t|
-    t.text 'text'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.bigint 'user_id', null: false
-    t.index ['user_id'], name: 'index_notes_on_user_id'
+  create_table "notes", force: :cascade do |t|
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'name'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "todos", force: :cascade do |t|
+    t.bigint "date_note_id", null: false
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["date_note_id"], name: "index_todos_on_date_note_id"
   end
 
-  add_foreign_key 'date_notes', 'notes'
-  add_foreign_key 'notes', 'users'
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "date_notes", "notes"
+  add_foreign_key "notes", "users"
+  add_foreign_key "todos", "date_notes"
 end

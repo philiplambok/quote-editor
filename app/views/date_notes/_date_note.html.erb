@@ -1,6 +1,9 @@
 <li>
-  <%= date_note.date %>
-  <br>
-  <%= link_to 'Edit', [:edit, date_note.note, date_note] %>
-  <%= button_to 'Delete', [date_note.note, date_note], method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %>
+  <div class="border">
+    <%= date_note.date %>
+    <br>
+    <%= link_to 'Edit', [:edit, date_note.note, date_note] %>
+    <%= button_to 'Delete', [date_note.note, date_note], method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %>
+    <%= link_to 'Add Todo', new_todos_path(date_note_id: date_note.id), data: { turbo_frame: '_top' } %>
+  </div>
 </li>
